@@ -1,18 +1,18 @@
-echo "Pilih web server yang ingin Anda instal:"
-echo "1. Apache2"
-echo "2. Nginx"
+sudo echo "Pilih web server yang ingin Anda instal:"
+sudo echo "1. Apache2"
+sudo echo "2. Nginx"
 
 read choice
 
 case $choice in
     1)
         echo "Menginstal Paket A..."
-        apt install apache2
+        sudo apt install apache2
         echo "Paket A berhasil diinstal."
         ;;
     2)
         echo "Menginstal Paket B..."
-        apt install nginx
+        sudo apt install nginx
         echo "Paket B berhasil diinstal."
         ;;
     *)
