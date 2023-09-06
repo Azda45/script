@@ -1,24 +1,30 @@
-sudo echo "Pilih web server yang ingin Anda instal:"
-sudo echo "1. Apache2"
-sudo echo "2. Nginx"
+#!/bin/bash
 
+# Menampilkan menu pilihan
+echo "Pilih web server yang ingin Anda instal:"
+echo "1. Apache2"
+echo "2. Nginx"
+
+# Membaca input pengguna
 read choice
 
 case $choice in
     1)
-        echo "Menginstal Paket A..."
+        echo "Menginstal Apache2..."
         sudo apt install apache2
-        echo "Paket A berhasil diinstal."
+        echo "Apache2 berhasil diinstal."
         ;;
     2)
-        echo "Menginstal Paket B..."
+        echo "Menginstal Nginx..."
         sudo apt install nginx
-        echo "Paket B berhasil diinstal."
+        echo "Nginx berhasil diinstal."
         ;;
     *)
         echo "Pilihan tidak valid. Silakan pilih nomor 1-2."
         ;;
 esac
-apt install php php-mysql
-apt install mysql-server
-apt install phpmyadmin
+
+# Install PHP, MySQL Server, dan phpMyAdmin
+sudo apt install php php-mysql
+sudo apt install mysql-server
+sudo apt install phpmyadmin
