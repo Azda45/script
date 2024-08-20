@@ -34,8 +34,8 @@ sudo systemctl restart php7.4-fpm
 # Download and setup OwnCloud
 echo "Downloading and setting up OwnCloud..."
 wget https://download.owncloud.com/server/stable/owncloud-latest.zip
-sudo apt install unzip
-unzip owncloud.zip
+sudo apt install unzip -y
+unzip owncloud-latest.zip
 sudo mv owncloud /var/www/
 sudo chown -R www-data:www-data /var/www/owncloud
 sudo chmod -R 755 /var/www/owncloud
@@ -54,7 +54,7 @@ server {
     server_name 172.16.10.14;
 
     root /var/www/owncloud/;
-    index index.php index.html /index.php$request_uri;
+    index index.php index.html /index.php\$request_uri;
 
     client_max_body_size 10G;
     fastcgi_buffers 64 4K;
@@ -65,7 +65,7 @@ server {
     error_page 404 /core/templates/404.php;
 
     location / {
-        rewrite ^ /index.php\$request_uri;
+        try_files \$uri /index.php\$request_uri;
     }
 
     location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
